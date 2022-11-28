@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductFormRequest;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use App\Repositories\ProductRepository;
@@ -24,13 +25,13 @@ class ProductController extends Controller
         return ProductResource::collection($products);
     }
 
-    public function store(Request $request)
+    public function store(ProductFormRequest $request)
     {
         $this->repository->createProduct($request);
         return response()->json('success', 201);
     }
 
-    public function update(Request $request, $sku)
+    public function update(ProductFormRequest $request, $sku)
     {
         $this->repository->updateProduct($request, $sku);
         return response()->json('updated', 200);
