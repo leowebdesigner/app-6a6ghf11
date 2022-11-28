@@ -31,4 +31,26 @@ class ProductRepository
         $product = $request->all();
         $data->update($product);
     }
+
+    public function sumQuantity($request, $sku)
+    {
+        $sum = $request->qtd;
+        $data = $this->entity->where('sku', $sku)->first();
+        $data->qtd = $data->qtd + $sum;
+        $data->save();
+    }
+
+    public function removeQuantity($request, $sku)
+    {
+        $remove = $request->qtd;
+        $data = $this->entity->where('sku', $sku)->first();
+        $data->qtd = $data->qtd - $remove;
+
+        if($data->qtd >= 0){
+            $data->save();
+            return response()->json('remove quantity success', 200);
+        } else {
+            return abort(401, "Não foi possível remover item do estoque, quantidade de remoção maior que a do estoque");
+        }
+    }
 }
