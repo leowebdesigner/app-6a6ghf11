@@ -25,7 +25,7 @@ class ProductFormRequest extends FormRequest
     {
         return [
             'name' => 'required|min:5|max:50',
-            'sku'  => "required|unique:products,name,{$this->sku},sku",
+            'sku'  => "required|unique:products,sku,{$this->sku},sku",
             'qtd'  => 'required|min:1',
         ];
     }
