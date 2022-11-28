@@ -26,7 +26,7 @@ class ProductController extends Controller
     public function store(ProductFormRequest $request)
     {
         $this->repository->createProduct($request);
-        return response()->json('success', 201);
+        return response()->json('create success', 201);
     }
 
     public function update(ProductFormRequest $request, $sku)
@@ -44,7 +44,6 @@ class ProductController extends Controller
     public function remQuantity(Request $request, $sku)
     {
         $quantity = $this->repository->removeQuantity($request, $sku);
-
         return $quantity;
     }
 }
