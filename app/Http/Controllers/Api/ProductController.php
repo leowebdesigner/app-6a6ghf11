@@ -5,10 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductFormRequest;
 use App\Http\Resources\ProductResource;
-use App\Models\Product;
 use App\Repositories\ProductRepository;
-use Exception;
-use Illuminate\Http\Request;
+
 
 class ProductController extends Controller
 {
@@ -36,5 +34,4 @@ class ProductController extends Controller
         $this->repository->updateProduct($request, $sku);
         return response()->json('updated', 200);
     }
-
 }
