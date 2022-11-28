@@ -24,4 +24,11 @@ class ProductRepository
         $product = $data->all();
         $this->entity->create($product);
     }
+
+    public function updateProduct($request, $sku)
+    {
+        $data = $this->entity->where('sku', $sku);
+        $product = $request->all();
+        $data->update($product);
+    }
 }

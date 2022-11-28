@@ -30,4 +30,10 @@ class ProductController extends Controller
         return response()->json('success', 201);
     }
 
+    public function update(Request $request, $sku)
+    {
+        $this->repository->updateProduct($request, $sku);
+        return response()->json('updated', 200);
+    }
+
 }
