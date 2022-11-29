@@ -39,6 +39,10 @@ Generate Laravel project key
 php artisan key:generate
 ```
 
+Run Migrations
+```sh
+php artisan migrate
+```
 
 Access the project
 [http://localhost:porta](http://localhost:8989)
