@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\{
+    MovimentController,
     ProductController,
 };
 use Illuminate\Http\Request;
@@ -12,5 +13,7 @@ Route::post('/products' , [ProductController::class, 'store']);
 Route::put('/products/{sku}' , [ProductController::class, 'update']);
 Route::post('/products/add/{sku}' , [ProductController::class, 'addQuantity']);
 Route::post('/products/rem/{sku}' , [ProductController::class, 'remQuantity']);
+
+Route::get('/moviments' , [MovimentController::class, 'index']);
 
 
