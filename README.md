@@ -41,7 +41,7 @@ php artisan key:generate
 
 
 Access the project
-[http://localhost:8989](http://localhost:8989)
+[http://localhost:porta](http://localhost:8989)
 
 Requeriments
 ```sh
