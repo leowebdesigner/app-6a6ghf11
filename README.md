@@ -43,7 +43,7 @@ Run Migrations
 ```sh
 php artisan migrate
 ```
-Run Projetc
+Run Project
 ```sh
 php artisan serve
 ```
