@@ -43,6 +43,10 @@ Run Migrations
 ```sh
 php artisan migrate
 ```
+Run Projetc
+```sh
+php artisan serve
+```
 
 Access the project
 [http://localhost:porta](http://localhost:8989)
