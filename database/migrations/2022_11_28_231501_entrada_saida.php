@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('products', function($table) {
-            $table->integer('stocktotal');
+        Schema::table('moviment', function($table) {
+            $table->string('status');
         });
     }
 
@@ -25,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('products', function($table) {
-            $table->dropColumn('stocktotal');
+        Schema::table('moviment', function($table) {
+            $table->dropColumn('status');
         });
     }
 };
