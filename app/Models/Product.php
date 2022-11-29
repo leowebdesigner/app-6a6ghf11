@@ -10,4 +10,9 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = ['name','sku','qtd',];
+
+    public function moviment()
+    {
+        return $this->belongsToMany(Moviment::class, 'product_sku');
+    }
 }

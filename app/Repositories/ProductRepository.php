@@ -2,6 +2,8 @@
 
 namespace App\Repositories;
 
+use App\Events\ProductEvent;
+use App\Events\ProductRemEvent;
 use App\Models\Product;
 
 class ProductRepository
@@ -38,6 +40,8 @@ class ProductRepository
         $data = $this->entity->where('sku', $sku)->first();
         $data->qtd = $data->qtd + $sum;
         $data->save();
+        $data->qtd = $sum;
+        ProductEvent::dispatch($data);
     }
 
     public function removeQuantity($request, $sku)
@@ -48,6 +52,8 @@ class ProductRepository
 
         if($data->qtd >= 0){
             $data->save();
+            $data->qtd = $remove;
+            ProductRemEvent::dispatch($data);
             return response()->json('remove quantity success', 200);
         } else {
             return abort(401, "Não foi possível remover item do estoque, quantidade de remoção maior que a do estoque");
